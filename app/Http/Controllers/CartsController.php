@@ -15,7 +15,7 @@ class CartsController extends Controller
      */
     public function index($id)
     {
-        return response(Cart::where('user_id', $id)->firstOrFail()->jsonSerialize(), Response::HTTP_OK);
+        return response(Cart::where('user_id', $id)->get()->jsonSerialize(), Response::HTTP_OK);
     }
 
     /**
