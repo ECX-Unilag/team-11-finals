@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\carts;
+use App\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CartsController extends Controller
 {
@@ -12,9 +13,9 @@ class CartsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return response(Cart::where('user_id', $id)->firstOrFail()->jsonSerialize(), Response::HTTP_OK);
     }
 
     /**

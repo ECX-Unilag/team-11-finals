@@ -11,6 +11,10 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categories')->insert([
+            [
+                'name' => 'Men Shirts',  
+            ],
+        ]);
     }
 }
