@@ -18,4 +18,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/products', 'ProductController@index');
 Route::get('/categories', 'CategoryController@index');
-Route::get('/carts/{id}', 'CartsController@index');

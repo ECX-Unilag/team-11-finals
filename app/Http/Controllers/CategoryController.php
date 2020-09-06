@@ -36,7 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category([
+            'name' => $request->input('category'),
+        ]);
+         
+        $category->save();
+        return response(Category::all()->jsonSerialize(), Response::HTTP_OK)
+            ->with('success','Added new Category');
     }
 
     /**
@@ -81,6 +87,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response(Category::all()->jsonSerialize(), Response::HTTP_OK)
+            ->with('success','Deleted Category');
     }
 }
